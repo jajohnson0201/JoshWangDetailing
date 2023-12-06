@@ -1,10 +1,11 @@
-import Container from './components/Container';
 import React from 'react';
-import './App.css';
+import Container from './compontents/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <Container />
     </div>
   );

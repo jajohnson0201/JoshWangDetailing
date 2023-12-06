@@ -1,21 +1,35 @@
 import React, {useState} from 'react';
-import InitMap from './pages/Map';
+import Header from './Header';
+import AboutMe from './pages/AboutMe';
+import Location from './pages/Location';
+import Review from './pages/Review';
+import Gallery from './pages/Gallery';
 
-export default function Container (){
-    const [currentPage, setCurrentPage] = useState('Map');
+
+function Container (){
+    const [currentPage, setCurrentPage] = useState('AboutMe');
     const renderPage = () => {
-        if (currentPage === 'Map') {
-          return <InitMap />;
+        if(currentPage === 'AboutMe'){
+            return <AboutMe />;
         }
-        
-      };
-      const handlePageChange = (page) => setCurrentPage(page);
+        if(currentPage === 'Location'){
+            return <Location />;
+        }
+        if(currentPage === 'Review'){
+            return <Review />;
+        }
+        return <Gallery />;
+    };
+    const handlePageChange = (page) => setCurrentPage(page);
+
 
     return (
-        <div>
-            <header currentPage={currentPage} handlePageChange={handlePageChange} />
+        <div className='container'> 
+            <Header  currentPage={currentPage} handlePageChange={handlePageChange}/>
             {renderPage()}
-            
         </div>
+        
       );
 }
+
+export default Container
